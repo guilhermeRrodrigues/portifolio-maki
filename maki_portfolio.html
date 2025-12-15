@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKI IA - Tecnologia que entende você</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+            color: #E0E0E0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(183, 28, 28, 0.1);
+            border-radius: 20px;
+            border: 2px solid #B71C1C;
+            box-shadow: 0 10px 30px rgba(183, 28, 28, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 10px 30px rgba(183, 28, 28, 0.3);
+            }
+            to {
+                box-shadow: 0 10px 40px rgba(183, 28, 28, 0.5);
+            }
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #B71C1C 0%, #8B0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            color: #9E9E9E;
+            font-style: italic;
+        }
+
+        .version {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 15px;
+            background: #B71C1C;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .content {
+            background: rgba(44, 44, 44, 0.6);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(183, 28, 28, 0.3);
+        }
+
+        .content h2 {
+            color: #B71C1C;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #B71C1C;
+            padding-bottom: 10px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: rgba(13, 13, 13, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #B71C1C;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(183, 28, 28, 0.4);
+        }
+
+        .feature-card h3 {
+            color: #E0E0E0;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #9E9E9E;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .social-section {
+            background: linear-gradient(135deg, #B71C1C 0%, #8B0000 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(183, 28, 28, 0.4);
+        }
+
+        .social-section h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .social-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 40px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #0D0D0D;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-width: 280px;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background: white;
+        }
+
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .social-label {
+            font-size: 0.9rem;
+            color: #606060;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .social-handle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #B71C1C;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #606060;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #B71C1C;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #8B0000;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .social-section {
+                padding: 40px 25px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">MAKI IA</div>
+            <div class="slogan">"Tecnologia que entende você"</div>
+            <span class="version">v1.40 BETA</span>
+        </div>
+
+        <div class="content">
+            <h2>💡 Sobre o Projeto</h2>
+            <p style="color: #C0C0C0; font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
+                MAKI IA é uma inteligência artificial educacional desenvolvida no SESI por <strong style="color: #B71C1C;">João Guilherme Rodrigues Citta</strong>. 
+                Uma plataforma inovadora que combina tecnologia avançada com educação acessível, oferecendo uma experiência intuitiva e personalizada.
+            </p>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🤖 IA Inteligente</h3>
+                    <p>Chat interativo com respostas contextualizadas e memória de conversas persistente.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📊 Geração de Slides</h3>
+                    <p>Criação automática de apresentações profissionais em PPTX, PDF e HTML.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🎨 Geração de Imagens</h3>
+                    <p>Criação de imagens com inteligência artificial para diversos propósitos.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>👤 Sistema Completo</h3>
+                    <p>Autenticação de usuários, painel administrativo e exportação de conversas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📱 Interface Responsiva</h3>
+                    <p>Design adaptável para Desktop, Tablet e Mobile com modo escuro.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🎓 Foco Educacional</h3>
+                    <p>Especializada em tecnologia e aprendizado, ideal para estudantes e educadores.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-section">
+            <h2 class="pulse">📱 Conecte-se Conosco</h2>
+            <p class="social-subtitle">Acompanhe as novidades e desenvolvimentos do projeto</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/maki.dev.ia" target="_blank" class="social-card">
+                    <span class="social-icon">🤖</span>
+                    <div class="social-label">Instagram da IA</div>
+                    <div class="social-handle">@maki.dev.ia</div>
+                </a>
+
+                <a href="https://instagram.com/gui.code_" target="_blank" class="social-card">
+                    <span class="social-icon">💻</span>
+                    <div class="social-label">Desenvolvedor</div>
+                    <div class="social-handle">@gui.code_</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Desenvolvido com ❤️ por João Guilherme Rodrigues Citta | SESI</p>
+            <p style="margin-top: 10px;">
+                <strong>Tecnologias:</strong> Python • Flask • Redis • SQLite • Google Gemini API
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Animação suave ao carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Efeito de hover nos links sociais
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px) scale(1.05) rotate(2deg)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+                });
+            });
+
+            // Animação de partículas no fundo (opcional)
+            createParticles();
+        });
+
+        function createParticles() {
+            const container = document.body;
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'fixed';
+                    particle.style.width = Math.random() * 4 + 2 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = '#B71C1C';
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = '-10px';
+                    particle.style.opacity = Math.random() * 0.5 + 0.2;
+                    particle.style.pointerEvents = 'none';
+                    particle.style.zIndex = '0';
+                    
+                    container.appendChild(particle);
+
+                    const duration = Math.random() * 10000 + 10000;
+                    const drift = Math.random() * 200 - 100;
+
+                    particle.animate([
+                        { transform: 'translateY(0) translateX(0)', opacity: particle.style.opacity },
+                        { transform: `translateY(${window.innerHeight + 50}px) translateX(${drift}px)`, opacity: 0 }
+                    ], {
+                        duration: duration,
+                        easing: 'linear'
+                    }).onfinish = () => {
+                        particle.remove();
+                    };
+                }, i * 500);
+            }
+
+            // Recria partículas continuamente
+            setTimeout(createParticles, 15000);
+        }
+    </script>
+</body>
+</html>
